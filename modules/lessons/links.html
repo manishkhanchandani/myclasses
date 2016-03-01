@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Enter Externl Links & PDF's</h1>
+      <form ng-submit="addLink()">
+        <div class="form-group">
+            <label for="linkUrls">Link or PDF URL:</label>
+            <input type="text" class="form-control" id="linkUrls" placeholder="Enter link or pdf url" ng-model="frm.linkUrl">
+        </div>
+        <button type="submit" class="btn btn-default">Add Link or PDF URL</button>
+        <a href="#/lessons/create/youtube/{{id}}" class="btn btn-default">Back</a>
+        <a href="#/" class="btn btn-default">Done</a>
+      </form>
+    </div>
+  </div>
+  
+  <div class="row" ng-if="linkUrls">
+    <br>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="url in linkUrls"><a href="{{url}}" target="_blank">{{url}}</a> (<a href="">Delete</a>)</li>
+    </ul>
+  </div>
+      
+</div>

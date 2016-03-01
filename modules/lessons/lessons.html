@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Lessons (Search or Browse)</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <form ng-submit="getData()">
+        <div class="form-group">
+            <label for="keyword">Keyword</label>
+            <input type="text" class="form-control" id="keyword" placeholder="Enter keyword" ng-model="frm.keyword">
+        </div>
+        <div class="form-group">
+            <label for="location">Near</label>
+            <input type="text" class="form-control addressBox" id="location" ng-model="location" placeholder="Enter Location" ng-autocomplete options="mapOptions" details="details">
+        </div>
+        <div class="form-group">
+            <label for="radius">Radius</label>
+            <input type="text" class="form-control" id="radius" placeholder="Enter radius in miles" ng-model="frm.radius" value="30">
+        </div>
+        <button type="submit" class="btn btn-primary form-control">Search</button>
+    </form>
+    </div>
+    <div class="col-md-9">
+    
+    
+    
+      <div class="row" ng-if="type === 1">
+        <div class="col-md-4" ng-repeat="item in results">
+          <img ng-if="item.mainImage" ng-src="{{item.mainImage}}" class="img-responsive img-thumbnail">
+          <img ng-if="!item.mainImage" ng-src="{{defaultImage}}" class="img-responsive img-thumbnail">
+          <h4><a href="">{{item.title}}</a> <small>{{item.location.city}}, {{item.location.state}}</small> <br><span class="dateFormatted">{{item.ago}}</span></h4>
+          <p ng-if="item.distance">{{item.distance}} mi away</p>
+          <p>{{item.shortDesc}}</p>
+        </div>
+      </div>
+      
+      
+      <div class="row" ng-if="type === 2">
+        <div class="col-md-12" ng-repeat="item in results">
+          <p><span class="dateFormatted">{{item.dateFormatted}}</span> <a href="">{{item.title}}</a> <small>{{item.location.city}}, {{item.location.state}}</small>
+          <span ng-if="item.distance">({{item.distance}} mi)</span></p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div>

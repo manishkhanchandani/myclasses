@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Enter Image URLS</h1>
+      <form ng-submit="addImage()">
+        <div class="form-group">
+            <label for="imageUrls">Image URL:</label>
+            <input type="text" class="form-control" id="imageUrls" placeholder="Enter image url" ng-model="frm.image">
+        </div>
+        <button type="submit" class="btn btn-default">Add Image</button>
+        <a href="#/lessons/create/youtube/{{id}}" class="btn btn-default">Continue</a>
+        <a href="#/lessons/create/images/{{id}}" class="btn btn-default">Back</a>
+      </form>
+      <br>
+      <div class="row">
+        <div class="col-md-3 text-center" ng-repeat="img in imageUrls">
+          <img ng-src="{{img}}" class="img-responsive img-thumbnail" />
+          <a href="">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

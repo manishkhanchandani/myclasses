@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Enter Youtube URLS</h1>
+      <form ng-submit="addYoutube()">
+        <div class="form-group">
+            <label for="youtubeUrls">Youtube URL:</label>
+            <input type="text" class="form-control" id="youtubeUrls" placeholder="Enter youtube url" ng-model="frm.youtube">
+        </div>
+        <button type="submit" class="btn btn-default">Add Youtube URL</button>
+        <a href="#/lessons/create/links/{{id}}" class="btn btn-default">Continue</a>
+        <a href="#/lessons/create/imageurls/{{id}}" class="btn btn-default">Back</a>
+      </form>
+      <br>
+      <div class="row" ng-if="youtubeUrls">
+        <div class="col-md-4 text-center" ng-repeat="url in youtubeUrls">
+          <div class="embed-responsive embed-responsive-4by3">
+            <youtube-video video-url="url"></youtube-video>
+          </div>
+          <a href="">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
